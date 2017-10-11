@@ -71,10 +71,6 @@ export class AlgoService{
         return filteredData
     }
 
-    getFinalizedOperator(){
-        return this.finalizedOperator
-    }
-
     runAlgo(userCountryCode, userInput, operatorData){
 
         this.selectedOperators = this.filterOperatorsBy(userCountryCode);

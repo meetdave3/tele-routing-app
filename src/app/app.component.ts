@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import {Observable} from 'rxjs/Observable';
 import { AlgoService } from './shared/algo.service';
 
 @Component({

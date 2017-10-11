@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core'; 
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; 
 import { FormsModule } from '@angular/forms';
 import { MdButtonModule } from '@angular/material';
 import { MdSelectModule } from '@angular/material';
@@ -27,6 +27,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     MdToolbarModule
   ],
   providers: [AlgoService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
