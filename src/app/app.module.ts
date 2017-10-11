@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core'; 
 import { FormsModule } from '@angular/forms';
-import {MdButtonModule} from '@angular/material';
-import {MdSelectModule} from '@angular/material';
-import {MdInputModule} from '@angular/material';
+import { MdButtonModule } from '@angular/material';
+import { MdSelectModule } from '@angular/material';
+import { MdInputModule } from '@angular/material';
+import { MdToolbarModule } from '@angular/material';
+
+import { AlgoService } from './shared/algo.service';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    NavBarComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -20,9 +23,10 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     MdButtonModule,
     MdSelectModule,
-    MdInputModule
+    MdInputModule,
+    MdToolbarModule
   ],
-  providers: [],
+  providers: [AlgoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
