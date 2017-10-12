@@ -20,15 +20,16 @@ export class AppComponent {
 
   constructor(private algoService: AlgoService){}
 
-
   parseInput(userCountryCode, userInput){
     if(userCountryCode && userInput){
       this.showError = false;
-      var operatorData = this.algoService.getData();
+      var operatorData = this.algoService.getData(userCountryCode);
+      console.log(operatorData);
       this.finalizedOperator = this.algoService.runAlgo(userCountryCode, userInput, operatorData);
       console.log(this.finalizedOperator);
     }else{
       this.showError = true;
+      this.finalizedOperator = false;
     }
   }
 }
