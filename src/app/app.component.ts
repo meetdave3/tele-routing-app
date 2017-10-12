@@ -3,7 +3,8 @@ import { FormControl } from '@angular/forms';
 import { AlgoService } from './shared/algo.service';
 import { AppService } from './app.service';
 
-import { CountryCodeData } from './shared/countryCodeData';
+import { CountryCodeData } from './shared/interface/countryCodeData';
+import { OperatorData } from './shared/interface/operatorData';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { CountryCodeData } from './shared/countryCodeData';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+
   finalizedOperator: any;
   showError: boolean;
   countryCode: CountryCodeData[] = [];
@@ -20,9 +22,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     this.appService.getCountryCodeData()
-      .subscribe(data => {
-        this.countryCode = data
-      });
+    .subscribe(data => {
+      this.countryCode = data
+    });
+
+    this.algoService.getOperatorTariffs()
+    .subscribe(data => {
+      console.log(data);
+    })
+      
   }
 
   parseInput(userCountryCode, userInput){

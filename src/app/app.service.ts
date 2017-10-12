@@ -3,7 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
-import { CountryCodeData } from './shared/countryCodeData';
+import { CountryCodeData } from './shared/interface/countryCodeData';
 
 @Injectable()
 export class AppService{

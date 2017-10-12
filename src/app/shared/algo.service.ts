@@ -1,66 +1,31 @@
+import { Injectable } from '@angular/core';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+
+import { OperatorData } from './interface/operatorData';
+
+@Injectable()
 export class AlgoService{
 
     selectedOperators: any;
     finalizedOperator: any;
-    rawOperatorData: any = [
-        {
-            operatorId: '1', 
-            countryCode: '91',
-            extendedCountryCode: '91',
-            operatorPrice: '0.10'
-        },
-        {
-            operatorId: '1',
-            countryCode: '91',
-            extendedCountryCode: '91',
-            operatorPrice: '0.10'
-        },
-        {
-            operatorId: '2', 
-            countryCode: '91',
-            extendedCountryCode: '911',
-            operatorPrice: '0.10'
-        },
-        {
-            operatorId: '7', 
-            countryCode: '1',
-            extendedCountryCode: '1',
-            operatorPrice: '0.05'
-        },
-        {
-            operatorId: '2', 
-            countryCode: '1',
-            extendedCountryCode: '1',
-            operatorPrice: '0.10'
-        },
-        {
-            operatorId: '3', 
-            countryCode: '91',
-            extendedCountryCode: '911',
-            operatorPrice: '0.08'
-        },
-        {
-            operatorId: '4', 
-            countryCode: '91',
-            extendedCountryCode: '919',
-            operatorPrice: '0.08'
-        },
-        {
-            operatorId: '4', 
-            countryCode: '49',
-            extendedCountryCode: '49',
-            operatorPrice: '0.02'
-          },
-          {
-            operatorId: '1',
-            countryCode: '91',
-            extendedCountryCode: '91',
-            operatorPrice: '0.01'
-        },
-    ];
+    apiOperatorData: OperatorData[] = [];
+
+    constructor(private http: Http){}
+
+    getOperatorTariffs(){
+        let apiUrl = './assets/data/api/operatorData.json';
+        return this.http.get(apiUrl)
+        .map(data=>{
+            var res = data.json();
+            this.apiOperatorData = res
+            return this.apiOperatorData
+        });
+    }  
 
     getData(userCountryCode){
-        var returnData = this.filterOperatorsByCC(userCountryCode);
+        var returnData = this.filterOperatorsByCC(userCountryCode)
         return returnData
     }
 
@@ -74,7 +39,7 @@ export class AlgoService{
     }
 
     filterOperatorsByCC(userCountryCode){
-        var filteredData = this.rawOperatorData.filter(x => x.countryCode == userCountryCode);
+        var filteredData = this.apiOperatorData.filter(x => x.countryCode == userCountryCode);
         return filteredData
     }
 
@@ -86,9 +51,9 @@ export class AlgoService{
     runAlgo(userCountryCode, userInput, operatorData){
 
         if(operatorData){
-            var operator = this.getCheapestOption(operatorData);
-            this.finalizedOperator = operator;
-            console.log(this.finalizedOperator);
+            var countryOperators = this.filterOperators(userCountryCode, operatorData);
+            var cheapestCountryOperator = this.getCheapestOption(countryOperators);
+            this.finalizedOperator = cheapestCountryOperator
         }else{
             return false
         }
@@ -100,9 +65,8 @@ export class AlgoService{
             newNumber = newNumber+thisDigit
             var extendedCountryCode = userCountryCode+newNumber
             this.selectedOperators = this.filterOperators(extendedCountryCode, operatorData);
-
             if(this.selectedOperators == ""){
-                break
+                // Idle
             }
             else{
                 if(this.selectedOperators.length > 1){

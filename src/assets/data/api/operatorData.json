@@ -1,0 +1,32 @@
+[
+    {
+        "operatorId": "1", 
+        "countryCode": "91",
+        "extendedCountryCode": "91",
+        "operatorPrice": "0.10"
+    },
+    {
+        "operatorId": "2", 
+        "countryCode": "1",
+        "extendedCountryCode": "1",
+        "operatorPrice": "0.15"
+    },
+    {
+        "operatorId": "3", 
+        "countryCode": "49",
+        "extendedCountryCode": "49",
+        "operatorPrice": "0.20"
+    },
+    {
+        "operatorId": "1", 
+        "countryCode": "91",
+        "extendedCountryCode": "9122",
+        "operatorPrice": "0.06"
+    },
+    {
+        "operatorId": "1", 
+        "countryCode": "91",
+        "extendedCountryCode": "91456",
+        "operatorPrice": "0.04"
+    }
+]
