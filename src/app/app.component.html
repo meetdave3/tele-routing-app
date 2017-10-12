@@ -7,15 +7,15 @@
 
   <div class="row">
     <form (ngSubmit)="parseInput(countryCode.value, userInput)">
-            <md-select placeholder="Select Country Code" [(ngModel)]="countryCode.value" name="countryCode" required>
-              <md-option *ngFor="let codeValues of countryCode" [value]="codeValues.value" required>
-                {{codeValues.viewValue}}
-              </md-option>
-            </md-select>
-          <md-input-container>
-            <input class="font-size" mdInput placeholder="Phone Number" type="number" [(ngModel)]="userInput" name="phoneNumber" required>
-          </md-input-container>
-        <button md-raised-button color="primary" type="submit">SUBMIT</button>
+      <md-select placeholder="Select Country Code" [(ngModel)]="countryCode.value" name="countryCode" required>
+        <md-option *ngFor="let codeValues of countryCode" [value]="codeValues.value" required>
+          {{codeValues.viewValue}}
+        </md-option>
+      </md-select>
+      <md-input-container>
+        <input class="font-size" mdInput placeholder="Phone Number" type="number" [(ngModel)]="userInput" name="phoneNumber" required>
+      </md-input-container>
+      <button md-raised-button color="primary" type="submit">SUBMIT</button>
     </form>
   </div>
 
@@ -24,7 +24,7 @@
   </div>
 
   <div class="row" *ngIf="showError">
-      <h4 class="red-text-color">Please Enter the Required Details</h4>
-    </div>
+    <h4 class="red-text-color">Please Enter the Required Details</h4>
+  </div>
 
 </div>

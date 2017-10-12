@@ -1,31 +1,35 @@
-import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { AlgoService } from './shared/algo.service';
+import { AppService } from './app.service';
+
+import { CountryCodeData } from './shared/countryCodeData';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   finalizedOperator: any;
   showError: boolean;
+  countryCode: CountryCodeData[] = [];
 
-  countryCode: any = [
-    { value: '91', viewValue: '+91 (India)' },
-    { value: '1', viewValue: '+1 (USA)' },
-    { value: '49', viewValue: '+49 (Germany)' }
-  ];
+  constructor(private appService: AppService, private algoService: AlgoService){}
 
-  constructor(private algoService: AlgoService){}
+  ngOnInit(){
+    this.appService.getCountryCodeData()
+      .subscribe(data => {
+        this.countryCode = data
+      });
+  }
 
   parseInput(userCountryCode, userInput){
     if(userCountryCode && userInput){
       this.showError = false;
       var operatorData = this.algoService.getData(userCountryCode);
-      console.log(operatorData);
-      this.finalizedOperator = this.algoService.runAlgo(userCountryCode, userInput, operatorData);
+      this.finalizedOperator = this.algoService.runAlgo(userCountryCode, userInput, operatorData)
       console.log(this.finalizedOperator);
     }else{
       this.showError = true;
