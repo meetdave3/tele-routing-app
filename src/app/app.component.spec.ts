@@ -3,11 +3,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { MdSelectModule } from '@angular/material';
-import { MdInputModule, MdButtonModule } from '@angular/material';
-import { MdToolbarModule } from '@angular/material';
 import { AlgoService } from './shared/algo.service';
+import { AppService } from './app.service';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { 
+  MdButtonModule, 
+  MdSelectModule,
+  MdInputModule,
+  MdToolbarModule
+} from '@angular/material';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -15,6 +20,7 @@ describe('AppComponent', () => {
         BrowserAnimationsModule,
         BrowserModule,
         FormsModule,
+        HttpModule,
         MdButtonModule,
         MdSelectModule,
         MdInputModule,
@@ -24,7 +30,7 @@ describe('AppComponent', () => {
         AppComponent,
         NavBarComponent
       ],
-      providers: [ AlgoService ]
+      providers: [ AlgoService, AppService ]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
