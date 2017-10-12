@@ -25,7 +25,7 @@ export class AlgoService{
     }  
 
     getData(userCountryCode){
-        var returnData = this.filterOperatorsByCC(userCountryCode)
+        var returnData = this.filterOperatorsByCC(userCountryCode);
         return returnData
     }
 

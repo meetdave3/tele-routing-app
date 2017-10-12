@@ -4,7 +4,6 @@ import { AlgoService } from './shared/algo.service';
 import { AppService } from './app.service';
 
 import { CountryCodeData } from './shared/interface/countryCodeData';
-import { OperatorData } from './shared/interface/operatorData';
 
 @Component({
   selector: 'app-root',
