@@ -1,4 +1,4 @@
-export class OperatorData{
+export class OperatorData {
     operatorId: number;
     countryCode: number;
     extendedCountryCode: number;

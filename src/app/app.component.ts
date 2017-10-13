@@ -17,28 +17,28 @@ export class AppComponent implements OnInit {
   showError: boolean;
   countryCode: CountryCodeData[] = [];
 
-  constructor(private appService: AppService, private algoService: AlgoService){}
+  constructor(private appService: AppService, private algoService: AlgoService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.appService.getCountryCodeData()
     .subscribe(data => {
-      this.countryCode = data
+      this.countryCode = data;
     });
 
     this.algoService.getOperatorTariffs()
     .subscribe(data => {
       console.log(data);
-    })
-      
+    });
+
   }
 
-  parseInput(userCountryCode, userInput){
-    if(userCountryCode && userInput){
+  parseInput(userCountryCode, userInput) {
+    if (userCountryCode && userInput) {
       this.showError = false;
-      var operatorData = this.algoService.getData(userCountryCode);
-      this.finalizedOperator = this.algoService.runAlgo(userCountryCode, userInput, operatorData)
+      const operatorData = this.algoService.getData(userCountryCode);
+      this.finalizedOperator = this.algoService.runAlgo(userCountryCode, userInput, operatorData);
       console.log(this.finalizedOperator);
-    }else{
+    }else {
       this.showError = true;
       this.finalizedOperator = false;
     }

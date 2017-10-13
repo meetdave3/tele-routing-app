@@ -3,8 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; 
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { 
-  MdButtonModule, 
+import {
+  MdButtonModule,
   MdSelectModule,
   MdInputModule,
   MdToolbarModule

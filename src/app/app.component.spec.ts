@@ -7,8 +7,8 @@ import { AlgoService } from './shared/algo.service';
 import { AppService } from './app.service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { 
-  MdButtonModule, 
+import {
+  MdButtonModule,
   MdSelectModule,
   MdInputModule,
   MdToolbarModule
@@ -16,7 +16,7 @@ import {
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[ 
+      imports: [
         BrowserAnimationsModule,
         BrowserModule,
         FormsModule,
