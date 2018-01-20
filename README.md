@@ -1,6 +1,6 @@
-# AssignmentApp
+# Telephone Routing Algorithm on Angular 4
 
-Angular 5 Solution to the problem described on this ->> [DOCUMENT](https://docs.google.com/document/d/1BB4_YC9XEPpICYFF8wJtE_p6PCYtLpRz2wOrqHuDDcU/edit?usp=sharing)
+Angular 4 Solution to the problem described on this ->> [DOCUMENT](https://docs.google.com/document/d/1BB4_YC9XEPpICYFF8wJtE_p6PCYtLpRz2wOrqHuDDcU/edit?usp=sharing)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
